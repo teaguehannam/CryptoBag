@@ -5,6 +5,10 @@ export default defineConfig({
     server: {
         port: 5000,
     },
-    
+    resolve: {
+        alias: {
+            '#cmp': process.cwd() + '/src/components',
+        },
+    },
     plugins: [svelte()],
 });
