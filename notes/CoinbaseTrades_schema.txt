@@ -1,4 +1,6 @@
-account fills
+1 row = 1 trade
+
+Key - Value
 0 - IGNORE
 1 - TRADE ID (unique id)
 2 - PRODUCT
