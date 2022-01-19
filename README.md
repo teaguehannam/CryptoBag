@@ -1,2 +1,2 @@
-# Crypto-bag
-Open source client side analytics
+# CryptoBag
+### Open source client side analytics
