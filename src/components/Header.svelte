@@ -23,11 +23,13 @@
 
 <style lang=scss>
 	header {
-		background: rgba(20,21,23,1);
-		box-shadow: 0 0 2px 3px rgba(30,31,33,1);
 
 		nav {
+			background: rgba(20,21,23,1);
+			border-radius: 0 0 9px 9px;
 			display: flex;
+			max-width: 800px;
+			margin: 0 auto;
 			justify-content: space-evenly;
 		
 			a {

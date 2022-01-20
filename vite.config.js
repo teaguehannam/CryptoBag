@@ -8,6 +8,7 @@ export default defineConfig({
     resolve: {
         alias: {
             '#cmp': process.cwd() + '/src/components',
+            '#stores': process.cwd() + '/src/stores',
         },
     },
     plugins: [svelte()],

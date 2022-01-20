@@ -1,4 +1,4 @@
-import "./global.css";
+import "./global.scss";
 import HMR from "@roxi/routify/hmr";
 import App from "./App.svelte";
 

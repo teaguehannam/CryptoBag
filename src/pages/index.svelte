@@ -2,7 +2,19 @@
 	import { metatags } from '@roxi/routify'
 	
 	metatags.title = 'CryptoBag'
-	metatags.description = '~ ¡ Open source trade analytics here ! ~'
+	metatags.description = 'Device side data and analytics'
+
+	let localDB;
+	// DB Check
+	if (!('indexedDB' in window)) {
+		console.log('Device DB not found');
+		localDB = IDBIndex.getAll();
+		console.log('set localDB to', DB);
+	} else {
+		console.log('Device DB:', window.indexedDB)
+	}
+	// endof DB Check
+
 </script>
 
 
