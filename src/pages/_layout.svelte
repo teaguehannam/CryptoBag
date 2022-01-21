@@ -10,6 +10,7 @@
 
 	onMount(() => {
 		get($DbName).then((trades) => {
+			// Initialize DataReady on site visit
 			if (trades) {
 				DataReady.set('yes');
 			} else {

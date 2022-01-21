@@ -1,7 +1,22 @@
 <script>
+	import { onMount } from 'svelte' 
 	import { metatags } from '@roxi/routify'
+	import { get } from 'idb-keyval';
 
+	import { DataReady } from '#stores/DataReady.js'
+	import { Hdls } from '#stores/Hdls.js' // coin data
 
+	onMount(() => {
+		if ($DataReady === 'yes') {
+			calcHoldings();
+		} else {
+			alert('website confused');
+		}
+	})
+
+	function calcHoldings() {
+
+	}
 
 	metatags.title = 'CryptoBag - Holdings'
 	metatags.description = '~ View holdings based on trading data ~'
@@ -10,7 +25,7 @@
 
 <div class="Holdings">
 	<div class="Contain">
-		<h1>This is <code>/holdings</code></h1>
+		<p>[Hdls here]</p>
 	</div>
 </div>
 
@@ -23,10 +38,10 @@
 
 		.Contain {
 			margin: 0 auto 50vh auto;
-			h1 {
-				margin: 0;
-				text-align: center;
+
+			p {
 				font-size: 3em;
+				color: rgba(20,21,24,0.6);
 			}
 		} // Contain
 	}

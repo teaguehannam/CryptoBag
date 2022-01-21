@@ -19,9 +19,8 @@
 		<p>Under "GENERATE", select "Fills"</p>
 		<img src="./img/help/2.png" alt="Step 2"/>
 		<p>Set desired settings, format must be "CSV"</p>
-		<img src="./img/help/3.png" alt="Step 3"/>
-		<p>Download once "Completed"</p>
-		<a href={$url('./data')}>Import trades data</a> 
+		<p>Download once <span>Completed</span></p>
+		<a href={$url('./data')}>Bring 'fills.csv' here</a>
 	</div>
 </div>
 
@@ -61,6 +60,12 @@
 				margin: 0;
 				color: rgba(252,252,252,1);
 				font-size: 1.5em;
+				span {
+					background: rgba(92,191,24,0.5);
+					padding: 0.25em 0.5em;
+					margin: 0 0.5em;
+					color: rgba(142,252,148,1);
+				}
 			}
 
 			img {

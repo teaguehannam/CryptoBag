@@ -1,7 +1,9 @@
 <!-- No data in IndexedDB, create Table from CSV -->
 <script>
-	import { metatags, goto } from '@roxi/routify'; 
+	import { writable } from 'svelte/store';
+	import { metatags, goto, url } from '@roxi/routify'; 
 	import { set } from 'idb-keyval';
+	import DataInfo from './DataInfo.svelte';
 
 	import { DataReady } from '#stores/DataReady.js';
 	import { DbName } from '#stores/DbName.js';
@@ -58,6 +60,11 @@
 		arr.length && (yield arr)
 	}
 
+
+	function showDataPolicy(state) {
+		console.log(state);
+	}
+
 </script>
 
 
@@ -66,6 +73,8 @@
 		<input bind:files type="file" accept=".csv" on:change={StartUpload} />
 	</div>
 </div>
+
+<DataInfo />
 
 
 <style lang=scss>
@@ -78,15 +87,6 @@
 			display: grid;
 			margin: 0 auto 40vh auto;
 
-			h2 {
-				color: rgba(233,234,232,0.3);
-				font-weight: 300;
-				padding: 0 0.8em;
-				margin: 0;
-				font-size: 1.25em;
-				line-height: 2em;
-
-			} // h2
 			input[type=file] {
 				background: rgba(29,39,44,1);
 				transition: 0.1s background ease-out;

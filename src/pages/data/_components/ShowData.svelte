@@ -35,6 +35,7 @@
 	}
 
 	function deleteDB() {
+		// you know what it is
 		del($DbName);
 		DataReady.set('no')
 	}
@@ -44,7 +45,10 @@
 <div class="ShowData">
 	<div class="Contain">
 		<div class="Actions">
-			<button on:click={() => deleteDB()}>Delete All</button>
+			<button on:click={() => deleteDB()}
+				title="Click to clear Database">
+				Delete All
+			</button>
 		</div>
 		<div id="DataSpreadsheet"></div>
 	</div>
