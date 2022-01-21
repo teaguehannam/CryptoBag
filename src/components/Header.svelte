@@ -1,36 +1,40 @@
 <script>
 	import { url, isActive } from '@roxi/routify'
-
-	const links = [
-		['./index', 'Index'],
-		['./dashboard', 'Dashboard'],
-		['./holdings', 'Holdings'],
-		['./trades', 'Trades'],
-	]
+	import { DataReady } from '#stores/DataReady.js'
 </script>
-
 
 <header>
 	<nav>
-		{#each links as [link, name]}
-			<a href={$url(link)} class:Active={$isActive(link)}>
-				{name}
+		{#if $DataReady === 'yes'}
+			<a href={$url('./dashboard')} class:Active={$isActive('./dashboard')}>
+				Dashboard
 			</a>
-		{/each}
+			<a href={$url('./holdings')} class:Active={$isActive('./holdings')}>
+				Holdings
+			</a>
+		{:else if $DataReady === 'no'}
+			<a href={$url('./index')} class:Active={$isActive('./index')}>
+				Home
+			</a>
+			<a href={$url('./help')} class:Active={$isActive('./help')}>
+				Help
+			</a>
+		{/if}
+		<a href={$url('./data')} class:Active={$isActive('./data')}>
+			Data
+		</a>
 	</nav>
 </header>
 
 
 <style lang=scss>
 	header {
-
 		nav {
-			background: rgba(20,21,23,1);
-			border-radius: 0 0 9px 9px;
 			display: flex;
-			max-width: 800px;
-			margin: 0 auto;
 			justify-content: space-evenly;
+			max-width: 720px;
+			margin: 0 auto;
+			background: rgba(20,21,23,1);
 		
 			a {
 				display: block;

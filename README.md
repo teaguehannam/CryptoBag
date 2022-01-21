@@ -1,10 +1,20 @@
 ### CryptoBag 
 ###### Open source client side trading analytics
 ---
-v0.2 release
-- Index page
-- Trades page
-  - Upload data persistance
+Version 0.5
+- Index
+``` console
+	No data = landing page then data page
+	Data loaded = dashboard
+```
+- Data
+``` console
+	View for coin balances state
+```
+- Balances
+``` console
+	View for coin balances state
+```
 ---
 #### Run locally with Git and Node.js
 ``` console
@@ -13,3 +23,4 @@ cd CryptoBag
 npm i
 npm run dev
 ```
+---
