@@ -15,12 +15,12 @@
 		<a href={$url(coinbaseProStatements)} target="_blank">
 			Go to statements
 		</a> 
-		<img src="./img/help/1.png" />
+		<img src="./img/help/1.png" alt="Step 1"/>
 		<p>Under "GENERATE", select "Fills"</p>
-		<img src="./img/help/2.png" />
+		<img src="./img/help/2.png" alt="Step 2"/>
 		<p>Set desired settings, format must be "CSV"</p>
-		<img src="./img/help/3.png" />
-		<p>Once status is "Completed", download statement</p>
+		<img src="./img/help/3.png" alt="Step 3"/>
+		<p>Download once "Completed"</p>
 		<a href={$url('./data')}>Import trades data</a> 
 	</div>
 </div>
@@ -36,7 +36,7 @@
 			display: grid;
 			grid-gap: 1em;
 			width: 100%;
-			margin: 0 auto 25vh auto;
+			margin: 0 auto;
 			padding: 1em 0;
 			max-width: 720px;
 			background: rgba(32,36,42,1);
@@ -52,7 +52,6 @@
 				transition: 0.1s border ease-in;
 				padding: 1em;
 
-
 				&:hover {
 					border: 1px solid rgba(92,92,92,1);
 				}
@@ -61,6 +60,7 @@
 			p {
 				margin: 0;
 				color: rgba(252,252,252,1);
+				font-size: 1.5em;
 			}
 
 			img {

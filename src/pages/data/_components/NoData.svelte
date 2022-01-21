@@ -1,18 +1,29 @@
-<!-- No data in IndexedDB -->
+<!-- No data in IndexedDB, create Table from CSV -->
 <script>
 	import { metatags, goto } from '@roxi/routify'; 
 	import { set } from 'idb-keyval';
 
 	import { DataReady } from '#stores/DataReady.js';
 	import { DbName } from '#stores/DbName.js';
+	import { TradeSchema } from '#stores/TradeSchema.js';
 
 	metatags.title = 'CryptoBag - Data';
 
 	let files; // HTML input
 
 	// Create table in IndexedDB
-	function createDB(data) {
-		const buffer = data;
+	function createDB(trades) {
+		// Normalize Data
+		const buffer = [];
+		trades.forEach(trade => {
+			let row = {};
+			$TradeSchema.forEach(column => {
+				row[column.name] = trade[column.id];
+			});
+			buffer.push(row)
+		})
+		// Set to IndexedDB
+		buffer.shift(); // remove header
 		set($DbName, buffer).then(() => {
 			DataReady.set('yes');
 		}).catch((err) => {
@@ -22,13 +33,13 @@
 
 	// Turns file into array
 	function StartUpload() {
-		const uploadData = [];
+		const trades = [];
 		var reader = new FileReader();
 		reader.addEventListener('load', function (e) {
 			for (let row of parseCSV(e.target.result)) {
-				uploadData.push(row);
+				trades.push(row);
 			}
-			createDB(uploadData); // Array to IndexedDB
+			createDB(trades); // Create table in IndexedDB
 		})
 		reader.readAsText(files[0]);
 	}

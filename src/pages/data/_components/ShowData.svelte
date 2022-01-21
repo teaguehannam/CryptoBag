@@ -1,4 +1,4 @@
-<!-- Data in IndexedDB -->
+<!-- Data in IndexedDB, CRUD spreadsheet -->
 <script>
 	import { onMount } from 'svelte';
 	import { get, del } from 'idb-keyval';
@@ -10,18 +10,27 @@
 	import { TradeSchema } from '#stores/TradeSchema.js';
 
 	onMount(() => {
+		// Get Data
 		get($DbName).then((trades) => {
-			renderView(trades)
+			renderView(trades);
 		})
 	})
 
-	/* TABLE VIEW DATA*/
-	function renderView(trades) { 
-		const schema = [
-		];
+	function renderView(trades) {
+		// Setup header
+		const header = [];
+		$TradeSchema.forEach(col => {
+			header.push({
+				type: col.type,
+				title: col.name,
+				width: col.width
+			})
+		})
+		// Create Spreadsheet
 		jspreadsheet(document.getElementById('DataSpreadsheet'), {
 			data: trades,
-			columns: schema
+			columns: header,
+			columnSorting: false,
 		})
 	}
 
@@ -35,7 +44,7 @@
 <div class="ShowData">
 	<div class="Contain">
 		<div class="Actions">
-			<button on:click={() => deleteDB()}>Clear Data</button>
+			<button on:click={() => deleteDB()}>Delete All</button>
 		</div>
 		<div id="DataSpreadsheet"></div>
 	</div>
@@ -48,9 +57,18 @@
 		align-items: center;
 
 		.Contain {
-			border: 1px solid orange;
-			max-width: 800px;
-			margin: 0 auto 50vh auto;
-		}
+			margin: 1em auto;
+
+			.Actions {
+				text-align: right;
+				button {
+					background: rgba(240,229,236,0.8);
+					padding: 0.75em 2em;
+					&:hover {
+						background: rgba(250,239,246,1);
+					}
+				} // button
+			} // Actions
+		} // Contain
 	}
 </style>

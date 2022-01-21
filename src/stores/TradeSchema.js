@@ -2,35 +2,45 @@ import { writable } from 'svelte/store';
 
 const initSchema = [
 	{
-		name: 'trade_id',
+		type: 'text',
+		id: 1,
+		name: 'trade id',
 		width: 100
 	},
 	{
+		type: 'numeric',
+		id: 2,
 		name: 'product',
-		width: 100
+		width: 120,
 	},
 	{
-		name: 'action',
-		width: 100
+		type: 'text',
+		id: 3,
+		name: 'side',
+		width: 60
 	},
 	{
-		name: 'timestamp',
-		width: 100
+		type: 'numeric',
+		id: 5,
+		name: 'size',
+		width: 200
 	},
 	{
-		name: 'purchased',
-		width: 100
-	},
-	{
+		type: 'numeric',
+		id: 7,
 		name: 'price',
-		width: 100
+		width: 200
 	},
 	{
+		type: 'numeric',
+		id: 8,
 		name: 'fee',
-		width: 100
+		width: 120
 	},
 	{
-		name: 'paid',
+		type: 'numeric',
+		id: 9,
+		name: 'total',
 		width: 100
 	}
 ]

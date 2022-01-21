@@ -2,13 +2,13 @@
 
 Key - Value
 0 - IGNORE
-1 - TRADE ID (unique id)
-2 - PRODUCT
-3 - ACTION
-4 - TIMESTAMP
-5 - AMOUNT PURCHASED
+1 - trade id
+2 - product
+3 - side
+4 - created at
+5 - size
 6 - IGNORE
-7 - PRICE
-8 - FEE
-9 - AMOUNT PAID
+7 - price
+8 - fee
+9 - total
 10 - IGNORE
