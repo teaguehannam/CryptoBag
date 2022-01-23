@@ -34,24 +34,25 @@
 			justify-content: space-evenly;
 			max-width: 720px;
 			margin: 0 auto;
-			background: rgba(20,21,23,1);
+			background: rgba(20,21,23,0.8);
 		
 			a {
-				display: block;
-				width: 100%;
+				width: 25%;
 				text-align: center;
-				color: rgba(252,252,252,0.9);
-				line-height: 3em;
+				color: rgba(252,252,252,0.8);
+				line-height: 2.6em;
+				margin: 0.2em 0;
 				font-size: 1.15em;
 				border: 2px solid rgba(192,193,195,0);
 		
 				&:hover {
 					color: rgba(252,252,252,1);
-					border: 2px solid rgba(192,193,195,1);
+					border: 2px solid rgba(192,193,195,0.1);
 				}
 
 				&.Active {
-					background: rgba(252,252,252,0.24);
+					background: rgba(92,93,95,1);
+					color: rgba(252,252,252,1);
 				}
 			} // a
 		} // nav

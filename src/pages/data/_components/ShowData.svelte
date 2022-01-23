@@ -61,7 +61,7 @@
 		align-items: center;
 
 		.Contain {
-			margin: 1em auto;
+			margin: 0.5em auto;
 
 			.Actions {
 				text-align: right;

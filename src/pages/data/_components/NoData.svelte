@@ -3,13 +3,12 @@
 	import { writable } from 'svelte/store';
 	import { metatags, goto, url } from '@roxi/routify'; 
 	import { set } from 'idb-keyval';
-	import DataInfo from './DataInfo.svelte';
 
 	import { DataReady } from '#stores/DataReady.js';
 	import { DbName } from '#stores/DbName.js';
 	import { TradeSchema } from '#stores/TradeSchema.js';
 
-	metatags.title = 'CryptoBag - Data';
+	import DataInfo from './DataInfo.svelte';
 
 	let files; // HTML input
 
@@ -65,6 +64,7 @@
 		console.log(state);
 	}
 
+	metatags.title = 'CryptoBag - Data';
 </script>
 
 
