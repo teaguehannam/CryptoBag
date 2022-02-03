@@ -4,7 +4,7 @@
 	import { DataReady } from '#stores/DataReady.js'
 
 	metatags.title = 'CryptoBag - Dashboard'
-	metatags.description = 'Analysis of your crypto HODL skills'
+	metatags.description = 'Analysis of your crypto trading skills'
 </script>
 
 
@@ -17,7 +17,7 @@
 
 <style lang=scss>
 	.Dashboard {
-		min-height: 100vh;
+		min-height: 90vh;
 		display: flex;
 		align-items: center;
 

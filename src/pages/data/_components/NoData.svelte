@@ -14,8 +14,8 @@
 
 	// Create table in IndexedDB
 	function createDB(trades) {
-		// Normalize Data
 		const buffer = [];
+		// Serialize
 		trades.forEach(trade => {
 			let row = {};
 			$TradeSchema.forEach(column => {
@@ -23,16 +23,18 @@
 			});
 			buffer.push(row)
 		})
-		// Set to IndexedDB
-		buffer.shift(); // remove header
+		// remove header
+		buffer.shift(); 
+		// Set IndexedDB
 		set($DbName, buffer).then(() => {
+			// Swap NoData for ShowData
 			DataReady.set('yes');
 		}).catch((err) => {
 			console.log('Data set error', err)
 		});
 	}
 
-	// Turns file into array
+	// Turn file into array
 	function StartUpload() {
 		const trades = [];
 		var reader = new FileReader();
@@ -44,7 +46,7 @@
 		})
 		reader.readAsText(files[0]);
 	}
-
+	// Generate Object from CSV row
 	function * parseCSV(str) {
 		for (var quote = 0, arr = [], row = 0, col = 0, c = 0; c < str.length; c++) {
 			var cc = str[c], nc = str[c+1];
@@ -57,11 +59,6 @@
 			(arr[col] += cc)
 		}
 		arr.length && (yield arr)
-	}
-
-
-	function showDataPolicy(state) {
-		console.log(state);
 	}
 
 	metatags.title = 'CryptoBag - Data';
@@ -79,7 +76,7 @@
 
 <style lang=scss>
 	#UploadTrades {
-		min-height: 100vh;
+		min-height: 80vh;
 		display: flex;
 		align-items: center;
 

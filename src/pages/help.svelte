@@ -9,24 +9,20 @@
 
 <div class="Help">
 	<div class="Contain">
-		<a href={$url(coinbasePro)} target="_blank">
-			Login to Coinbase Pro
-		</a> 
 		<a href={$url(coinbaseProStatements)} target="_blank">
-			Go to statements
+			Go to Coinbase Pro statements
 		</a> 
 		<img src="./img/help/1.png" alt="Step 1"/>
-		<p>Under "GENERATE", select "Fills"</p>
-		<img src="./img/help/2.png" alt="Step 2"/>
-		<p>Set desired settings, format must be "CSV"</p>
-		<p>Download once <span>Completed</span></p>
+		<p>Under GENERATE, select Fills</p>
+		<p>Set date range to include all trades</p>
+		<p class="Alert">Format must be "CSV"</p>
 		<a href={$url('./data')}>Bring 'fills.csv' here</a>
 	</div>
 </div>
 
 <style lang=scss>
 	.Help {
-		min-height: 100vh;
+		min-height: 80vh;
 		display: flex;
 		align-items: center;
 

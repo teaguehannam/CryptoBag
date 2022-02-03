@@ -12,8 +12,8 @@
 		<div class="Contain">
 			<p>Do you have a CSV trading file?</p>
 			<div class="Choices">
-				<a href={$url('./help')}>No</a>
 				<a href={$url('./data')}>Yes</a>
+				<a href={$url('./help')}>No</a>
 			</div>
 		</div>
 	</div>
@@ -22,7 +22,7 @@
 
 <style lang=scss>
 	#Index {
-		min-height: 100vh;
+		min-height: 80vh;
 		display: flex;
 		align-items: center;
 
@@ -32,10 +32,11 @@
 			display: grid;
 			grid-gap: 2em;
 			max-width: 400px;
-			width: 80vw;
-			margin: 0 auto 50vh auto;
-			border-radius: 1em 2em;
-			border: 2px solid rgba(192,194,193,0.2);
+			width: 90%;
+			margin: 0 auto;
+			border-radius: 1.2em 2.1em;
+			border: 2px solid rgba(192,194,193,0.9);
+			box-shadow: 0 0 3px 0 rgba(93,95,94,1);
 			padding: 1em;
 
 			p {
@@ -55,6 +56,7 @@
 					border-radius: 12px;
 					border: 3px solid rgba(216,222,232,0);
 					&:hover {
+						background: rgba(64,72,84,1);;
 						color: rgba(252,252,252,1);
 						border: 3px solid rgba(216,232,232,0.6);
 					}
