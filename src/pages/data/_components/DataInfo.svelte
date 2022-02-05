@@ -1,4 +1,5 @@
 <script>
+	const indexedDBLink = 'https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API/Using_IndexedDB'
 	let modalState = false;
 
 	function hdlModal() {
@@ -14,10 +15,17 @@
 </div>
 
 <div class="DataPolicy" class:Active={modalState}
-	on:click={() => hdlModal()}>
+	on:click={() => hdlModal()}
+	title="Click to close">
 	<div class="Contain">
 		<h2>Data Policy</h2>
-		<p>Bring your own data</p>
+		<a href={indexedDBLink} title="Click to view technology"
+			target="_blank">
+			Bring and store your own data
+		</a>
+		<code title="Click to end sarcasm">
+			This site doesn't even use cookies
+		</code>
 	</div>
 </div>
 
@@ -46,9 +54,19 @@
 				font-size: 5em;
 				color: white;
 			}
-			p {
+			p  {
 				color: white;
 				font-size: 2em;
+			}
+			a {
+				color: white;
+				font-size: 1.5em;
+			}
+			code {
+				color: rgba(222,224,228,1);
+				line-height: 2em;
+				font-style: italic;
+				cursor: no-drop;
 			}
 		}
 	}
