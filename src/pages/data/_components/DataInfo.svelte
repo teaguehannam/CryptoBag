@@ -1,10 +1,9 @@
 <script>
-	const indexedDBLink = 'https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API/Using_IndexedDB'
+	const indexedDBLink = 'https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API/Using_IndexedDB';
 	let modalState = false;
 
 	function hdlModal() {
 		modalState = !modalState;
-		console.log(modalState)
 	}
 </script>
 
@@ -19,52 +18,65 @@
 	title="Click to close">
 	<div class="Contain">
 		<h2>Data Policy</h2>
-		<a href={indexedDBLink} title="Click to view technology"
-			target="_blank">
-			Bring and store your own data
+		<a href={indexedDBLink} title="Click to view tech" target="_blank">
+			Bring and manage your own data
 		</a>
-		<code title="Click to end sarcasm">
-			This site doesn't even use cookies
-		</code>
+		<code>No cookies, tracking, or data collection</code>
 	</div>
 </div>
 
 <style lang=scss>
 	.DataPolicy {
 		display: none;
-		&.Active {
-			display: grid;
-		}
 		top: 0;
 		position: fixed;
 		z-index: 5;
 		height: 80vh;
 		width: 100vw;
+		
+		&.Active {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+		
 		.Contain {
 			background: rgba(20,22,28,1);
 			width: 80vw;
-			margin: 5em auto;
+			margin: calc(5em + 10vh) auto;
 			border-radius: 1em;
+			padding: 2em 0;
 			border: 0.5em solid rgba(252,252,252,0.5);
 			backdrop-filter: blur(3px);
 			display: grid;
 			text-align: center;
+			height: 100%;
+			max-height: 720px;
+			max-width: 1024px;
 
 			h2 {
 				font-size: 5em;
+				margin: 0;
 				color: white;
-			}
-			p  {
-				color: white;
-				font-size: 2em;
 			}
 			a {
 				color: white;
 				font-size: 1.5em;
+				max-height: 1.5em;
+				border: 1px solid rgba(252,252,252,0);
+				max-width: 420px;
+				width: 100%;
+				margin: 0 auto;
+
+				&:hover {
+					border: 1px solid rgba(252,252,252,0.2);
+
+				}
 			}
 			code {
 				color: rgba(222,224,228,1);
 				line-height: 2em;
+				font-size: 1.25em;
 				font-style: italic;
 				cursor: no-drop;
 			}

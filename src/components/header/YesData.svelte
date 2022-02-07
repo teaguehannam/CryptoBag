@@ -1,41 +1,28 @@
 <script>
 	import { url, isActive } from '@roxi/routify'
-	import { DataReady } from '#stores/DataReady.js'
 </script>
 
-<header>
-	<nav>
 
-		{#if $DataReady === 'yes'}
-			<a href={$url('./dashboard')}
-				class:Active={$isActive('./dashboard')}>
-				Dashboard
-			</a>
-			<a href={$url('./holdings')}
-				class:Active={$isActive('./holdings')}>
-				Holdings
-			</a>
-		{:else if $DataReady === 'no'}
-			<a href={$url('./index')}
-				class:Active={$isActive('./index')}>
-				Home
-			</a>
-			<a href={$url('./help')}
-				class:Active={$isActive('./help')}>
-				Help
-			</a>
-		{/if}
-		<!-- Show always -->
+<div class="YesData">
+	<nav>
+		<a href={$url('./dashboard')}
+			class:Active={$isActive('./dashboard')}>
+			Dashboard
+		</a>
+		<a href={$url('./holdings')}
+			class:Active={$isActive('./holdings')}>
+			Holdings
+		</a>
 		<a href={$url('./data')} 
 			class:Active={$isActive('./data')}>
 			Data
 		</a>
 	</nav>
-</header>
+</div>
 
 
 <style lang=scss>
-	header {
+	.YesData {
 		background: rgba(30,31,33,1);
 		nav {
 			display: flex;
@@ -55,7 +42,7 @@
 
 				&:hover {
 					color: rgba(252,252,252,1);
-					border-bottom: 2px solid rgba(52,113,252,0.8);
+					border-bottom: 2px solid rgba(102,143,212,0.8);
 				}
 
 				&.Active {
@@ -64,5 +51,5 @@
 				}
 			} // a
 		} // nav
-	} // header
+	} // YesData
 </style>

@@ -1,17 +1,15 @@
 <!-- routify:options preload="proximity" -->
 <script>
-	import { onMount } from 'svelte';
-	import { get } from 'idb-keyval';
 	
-	import Header from '#cmp/Header.svelte';
+	import Header from '#cmp/header/index.svelte';
 
+
+	import { onMount } from 'svelte';
 	import { DataReady } from '#stores/DataReady.js';
-	import { DbName } from '#stores/DbName.js';
-
+	import { get } from 'idb-keyval';
 	onMount(() => {
-		get($DbName).then((trades) => {
-			// Initialize DataReady on site visit
-			if (trades) {
+		get('Trades').then((trades) => {
+			if (trades.length > 0) {
 				DataReady.set('yes');
 			} else {
 				DataReady.set('no');
@@ -22,3 +20,4 @@
 
 <Header />
 <slot />
+

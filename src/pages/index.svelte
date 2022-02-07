@@ -1,13 +1,18 @@
 <script>
-	import { metatags, redirect, url } from '@roxi/routify'
-	import { DataReady } from '#stores/DataReady.js';
+
 	import { onMount } from 'svelte';
-	
+	import { metatags, url, redirect } from '@roxi/routify'
+	import { DataReady } from '#stores/DataReady.js';
+	onMount(() => {
+		if ($DataReady === 'yes') {
+			$redirect('./dashboard');
+		}
+	})
+
 	metatags.title = 'CryptoBag - Welcome';
 	metatags.description = 'Crypto trades data management';
 </script>
 
-{#if $DataReady === 'no'}
 	<div id="Index">
 		<div class="Contain">
 			<p>Do you have a CSV trading file?</p>
@@ -17,7 +22,6 @@
 			</div>
 		</div>
 	</div>
-{/if}
 
 
 <style lang=scss>
