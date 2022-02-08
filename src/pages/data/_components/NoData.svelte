@@ -5,7 +5,6 @@
 	import { set } from 'idb-keyval';
 
 	import { DataReady } from '#stores/DataReady.js';
-	import { DbName } from '#stores/DbName.js';
 	import { TradeSchema } from '#stores/TradeSchema.js';
 
 	import DataInfo from './DataInfo.svelte';
@@ -26,7 +25,7 @@
 		// remove header
 		buffer.shift(); 
 		// Set IndexedDB
-		set($DbName, buffer).then(() => {
+		set('Trades', buffer).then(() => {
 			// Swap NoData for ShowData
 			DataReady.set('yes');
 		}).catch((err) => {

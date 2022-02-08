@@ -9,6 +9,7 @@ export default defineConfig({
         alias: {
             '#cmp': process.cwd() + '/src/components',
             '#stores': process.cwd() + '/src/stores',
+            '#classes': process.cwd() + '/src/classes',
         },
     },
     plugins: [svelte()],

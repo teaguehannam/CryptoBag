@@ -4,11 +4,10 @@
 	import { get } from 'idb-keyval';
 
 	import { DataReady } from '#stores/DataReady.js';
-	import { DbName } from '#stores/DbName.js';
 	import { Products } from '#stores/Products.js';
 
 	onMount(() => {
-		get($DbName).then((trades) => {
+		get('Trades').then((trades) => {
 			calcHoldings(trades);
 		})
 	})

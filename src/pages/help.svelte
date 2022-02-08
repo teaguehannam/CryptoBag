@@ -15,10 +15,10 @@
 		<img src="./img/help/1.png" alt="Step 1"/>
 		<div class="DoubleRow">
 			<p>GENERATE</p>
-			<p>Fills</p>
+			<code>Fills</code>
 		</div>
-		<p title="(for data accuracy)">Set date range to include all trades</p>
-		<p class="Alert" title="(I don't want to parse PDFs)">Format must be "CSV"</p>
+		<p title="(for data accuracy)">Set date range around all trades</p>
+		<p class="Alert" title="(why parse a PDF?)">Format must be "CSV"</p>
 		<a href={$url('./data')}>Bring 'fills.csv' here</a>
 	</div>
 </div>
@@ -37,36 +37,49 @@
 			grid-gap: 1em;
 			width: 100%;
 			margin: 0 auto;
-			padding: 1em 0;
 			max-width: 720px;
-			// border-radius: 1em;
+			border-radius: 1em;
+			padding: 0 1em;
 
 			.DoubleRow {
+				text-align: left;
 				background: rgba(23,28,36,1);
-				width: 300px;
-				padding: 0 50px;
-				margin: 0 0 0 auto;
+				padding: 0 1em;
+				margin: 0 auto;
 				border: 2px solid rgba(65,71,77,1);
+				code {
+					color: white;
+					font-size: 1.5em;
+					line-height: 2em;
+					border: 1px solid green;
+					border-radius: 1em;
+					padding: 3px 9px;
+				}
 			}
 
 			img {
-				width: 80%;
+				width: 60%;
 				margin: 0 auto;
 			} // help img
 
 			a {
-				background: rgba(32,36,42,1);
 				display: block;
 				font-size: 1.3em;
-				color: rgba(122,232,252,1);
-				margin: 0 auto;
-				width: 80%;
+				line-height: 2.6em;
+				margin: 1em auto;
+				width: 100%;
+				max-width: 600px;
 				border-radius: 3px;
+				// hover stuff
 				border: 1px solid rgba(87,87,87,0.5);
+				background: rgba(32,36,42,1);
+				color: rgba(122,232,252,1);
 				transition: 0.1s border ease-in;
-				padding: 1em;
+				transition: 0.2s background ease-in;
+				transition: 0.43s color ease-in;
 
 				&:hover {
+					background: rgba(37,41,47,1);
 					border: 1px solid rgba(92,92,92,1);
 				}
 			} // a
