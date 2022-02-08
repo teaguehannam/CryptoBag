@@ -10,19 +10,35 @@ class Formatter {
 	}
 
 	static crypto(value) {
+		let buffer = '';
 		if (typeof value === "string"){
-			return parseFloat(value).toFixed(2);
+			buffer = parseFloat(value).toFixed(2);
 		} else {
-			return value.toFixed(2);
+			buffer = value.toFixed(2);
 		}
+		if (buffer[0] === '-') {
+			buffer = buffer.slice(1);
+		}
+		return buffer;
 	}
 
 	static money(value) {
+		let buffer = ''
 		if (typeof value === "string"){
-			return parseFloat(value).toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+			buffer = parseFloat(value).toLocaleString('en-US', {
+				style: 'currency',
+				currency: 'USD'
+			});
 		} else {
-			return value.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+			buffer = value.toLocaleString('en-US', {
+				style: 'currency',
+				currency: 'USD'
+			});
 		}
+		if (buffer[0] === '-') {
+			buffer = buffer.slice(1);
+		}
+		return buffer;
 	}
 
 	static percent(value) {

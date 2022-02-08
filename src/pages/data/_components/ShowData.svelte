@@ -38,6 +38,7 @@
 				<tr>
 					<th>Recieve</th>
 					<th>Amount</th>
+					<th>USD Price</th>
 					<th>Give</th>
 					<th>Amount</th>
 				</tr>
@@ -47,6 +48,7 @@
 					<tr title={`Trade ID: ${trade['trade id']}`}>
 						<td>{ Fmt.product1(trade['product']) }</td>
 						<td>{ Fmt.crypto(trade['size']) }</td>
+						<td class="Price">{ Fmt.money(trade['price']) }</td>
 						<td>{ Fmt.product2(trade['product']) }</td>
 						{#if Fmt.product2(trade['product']) === 'USD'}
 							<td>{ Fmt.money(trade['total']) }</td>
@@ -112,6 +114,13 @@
 						cursor: cell;
 						&:hover {
 							background: rgba(252,252,252,0.2);
+						}
+						td {
+
+							&.Price {
+								border-left: 2px solid rgba(133,187,101,0.2);
+								border-right: 2px solid rgba(133,187,101,0.2);
+							}
 						}
 					}
 				} // tbody
