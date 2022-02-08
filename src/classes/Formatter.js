@@ -1,8 +1,12 @@
 
 class Formatter {
 
-	static product(value) {
+	static product1(value) {
 		return value.split('-')[0];
+	}
+
+	static product2(value) {
+		return value.split('-')[1];
 	}
 
 	static crypto(value) {

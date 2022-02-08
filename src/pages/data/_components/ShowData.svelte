@@ -38,20 +38,20 @@
 				<tr>
 					<th>Recieve</th>
 					<th>Amount</th>
-					<th>For</th>
+					<th>Give</th>
 					<th>Amount</th>
 				</tr>
 			</thead>
 			<tbody>
 				{#each $Trades as trade}
 					<tr title={`Trade ID: ${trade['trade id']}`}>
-						<td>{trade['product'].split('-')[0]}</td>
-						<td>{Fmt.crypto(trade['size'])}</td>
-						<td>{trade['product'].split('-')[1]}</td>
-						{#if trade['product'].split('-')[1] === 'USD'}
-							<td>{Fmt.money(trade['total'])}</td>
+						<td>{ Fmt.product1(trade['product']) }</td>
+						<td>{ Fmt.crypto(trade['size']) }</td>
+						<td>{ Fmt.product2(trade['product']) }</td>
+						{#if Fmt.product2(trade['product']) === 'USD'}
+							<td>{ Fmt.money(trade['total']) }</td>
 						{:else}
-							<td>{Fmt.crypto(trade['total'])}</td>
+							<td>{ Fmt.crypto(trade['total']) }</td>
 						{/if}
 					</tr>
 				{/each}
