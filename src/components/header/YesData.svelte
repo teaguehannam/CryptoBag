@@ -13,6 +13,10 @@
 			class:Active={$isActive('./holdings')}>
 			Holdings
 		</a>
+		<a href={$url('./products')}
+			class:Active={$isActive('./products')}>
+			Products
+		</a>
 		<a href={$url('./data')} 
 			class:Active={$isActive('./data')}>
 			Data

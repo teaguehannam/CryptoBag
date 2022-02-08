@@ -23,6 +23,8 @@ class Formatter {
 	}
 
 	static money(value) {
+		if (value === '-') return '-';
+		
 		let buffer = ''
 		if (typeof value === "string"){
 			buffer = parseFloat(value).toLocaleString('en-US', {
