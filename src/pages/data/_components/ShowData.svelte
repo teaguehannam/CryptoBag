@@ -11,7 +11,7 @@
 	onMount(() => {
 		get('Trades').then((trades) => {
 			Trades.set(trades)
-			console.log($Trades);
+			// console.log($Trades);
 		})
 	})
 

@@ -30,37 +30,31 @@
 			});
 		})
 
-
 		let i;
 		data.forEach(trade => {
 			i = totals.findIndex(p => p.name === trade.product)
 			if (trade.side === 'BUY') {
 				totals[i].buy_count++;
-				totals[i].buy_avg += parseFloat(trade.price);
+				totals[i].buy_avg = runningAvg(totals[i].buy_avg, totals[i].buy_count, trade.price);
 				totals[i].buy_size += parseFloat(trade.size)
 			} else {
 				totals[i].sell_count++;
-				totals[i].sell_avg += parseFloat(trade.price);
+				totals[i].sell_avg = runningAvg(totals[i].sell_avg, totals[i].sell_count, trade.price);
 				totals[i].sell_size += parseFloat(trade.size)
 			}
 		})
 
-		// Avg Buy/Sell for each unique pair
-		totals.forEach(pair => {
-			if (pair.buy_count === 0) {
-				pair.buy_avg = '-';
-			} else {
-				pair.buy_avg = pair.buy_avg / pair.buy_count;
-			}
-			if (pair.sell_count === 0) {
-				pair.sell_avg = '-';
-			} else {
-				pair.sell_avg = pair.sell_avg / pair.sell_count;
-			}
+		totals.forEach(total => {
+			if (total.buy_count === 0) total.buy_avg = '-'
+			if (total.sell_count === 0) total.sell_avg = '-'
 		})
 
-		Products.set(totals);
-		console.log($Products)
+		Products.set(totals)
+	}
+
+	function runningAvg(currentAvg, count, addValue) {
+		let avgSum = currentAvg * (count - 1) + parseFloat(addValue);
+		return avgSum / count;
 	}
 
 	metatags.title = 'CryptoBag - Holdings'
