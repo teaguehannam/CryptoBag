@@ -1,6 +1,7 @@
 <script>
 	const indexedDBLink = 'https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API/Using_IndexedDB';
-	let modalState = false;
+	const githubLink = 'https://github.com/teaguehannam/CryptoBag';
+	let modalState = true;
 
 	function hdlModal() {
 		modalState = !modalState;
@@ -22,6 +23,9 @@
 			Bring and manage your own data
 		</a>
 		<code>No cookies, tracking, or data collection</code>
+		<a href={githubLink} title="View deployment repository">
+			View source code
+		</a>
 	</div>
 </div>
 
@@ -54,23 +58,23 @@
 			max-height: 720px;
 			max-width: 1024px;
 
+
 			h2 {
-				font-size: 5em;
-				margin: 0;
+				font-size: 3rem;
+				line-height: 2.5rem;
+				margin: 0.6rem 0 0 0;
 				color: white;
 			}
 			a {
 				color: white;
-				font-size: 1.5em;
-				max-height: 1.5em;
+				font-size: 1.5rem;
+				padding: 0 1.2rem;
 				border: 1px solid rgba(252,252,252,0);
 				max-width: 420px;
-				width: 100%;
 				margin: 0 auto;
 
 				&:hover {
 					border: 1px solid rgba(252,252,252,0.2);
-
 				}
 			}
 			code {
