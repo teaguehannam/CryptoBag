@@ -72,7 +72,7 @@
 					<th>Sell avg</th>
 				</tr>
 			</thead>
-				{#each $Products as pair}
+			{#each $Products as pair}
 				<tbody>
 					<tr>
 						<td>{ pair['name'] }</td>
